@@ -24,7 +24,7 @@ export default function Payment() {
   try {
 
     await axios.put(
-      `http://localhost:3000/api/bookings/${booking._id}`,
+      `https://hotel-stay-aeam.onrender.com/api/bookings/${booking._id}`,
       {
         status: "COD",
         paymentMethod: "COD",
@@ -46,7 +46,7 @@ export default function Payment() {
   const handleOnlinePayment = async () => {
     try {
       const { data: order } = await axios.post(
-        "http://localhost:3000/api/payment/create-order",
+        "https://hotel-stay-aeam.onrender.com/api/payment/create-order",
         {
           amount: booking.totalPrice,
         }
@@ -63,7 +63,7 @@ export default function Payment() {
         handler: async function (response) {
           try {
             const res = await axios.post(
-              "http://localhost:3000/api/payment/verify",
+              "https://hotel-stay-aeam.onrender.com/api/payment/verify",
               {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,
@@ -74,7 +74,7 @@ export default function Payment() {
 
             if (res.data.success) {
               await axios.put(
-                `http://localhost:3000/api/bookings/${booking._id}`,
+                `https://hotel-stay-aeam.onrender.com/api/bookings/${booking._id}`,
                 {
                   status: "Paid Online",
                   paymentId: response.razorpay_payment_id,
