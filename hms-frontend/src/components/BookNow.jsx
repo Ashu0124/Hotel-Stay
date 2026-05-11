@@ -120,7 +120,7 @@ const handleConfirmBooking = async () => {
 
   try {
     const res = await axios.post(
-      "http://localhost:3000/api/bookings",
+      "https://hotel-stay-aeam.onrender.com/api/bookings",
       booking
     );
 
