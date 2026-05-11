@@ -28,7 +28,7 @@ export default function BookingHistory() {
       try {
 
         const res = await fetch(
-          "http://127.0.0.1:3000/api/bookings"
+          "https://hotel-stay-aeam.onrender.com/api/bookings"
         );
 
         const data = await res.json();
