@@ -30,7 +30,7 @@ export default function Confirmation() {
       try {
 
         const res = await axios.get(
-          `http://127.0.0.1:3000/api/bookings/${id}`
+          `https://hotel-stay-aeam.onrender.com/api/bookings/${id}`
         );
 
         setBooking(res.data);
